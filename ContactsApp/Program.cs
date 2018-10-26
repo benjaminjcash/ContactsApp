@@ -27,6 +27,8 @@ namespace ContactsApp
 			myContactBook.AddContact(newName, newNumber);
 			myContactBook.PrintContacts();
 
+			myContactBook.AddContact("New Person", "555-555-5555");
+
 		}
 	}
 }
