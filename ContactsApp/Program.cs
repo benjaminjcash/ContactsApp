@@ -10,25 +10,34 @@ namespace ContactsApp
 	{
 		static void Main(string[] args)
 		{
-			ContactBook myContactBook = new ContactBook("Ben's Contacts");
+			Console.WriteLine("Welcome to your contacts list application! What would you like to do?");
+			Console.WriteLine("=====================================================================");
+			Console.WriteLine("1. Create a new book");
+			Console.WriteLine("---------------------------------------------------------------------");
+			Console.WriteLine("2. Access an existing book");
+			Console.WriteLine("---------------------------------------------------------------------");
 
-			myContactBook.AddContact("John", "303-718-6299");
-			myContactBook.AddContact("Sally", "445-588-7258");
+			string selection = Console.ReadLine();
+			switch(selection)
+			{
+				case "1":
+					Console.WriteLine("!");
+					break;
+				case "2":
+					Console.WriteLine("?");
+					break;
+			}
 
+			//ContactBook myContactBook = CreateBook();
+			//myContactBook.NameBook();
+			//myContactBook.AddContact();
+			//myContactBook.PrintContacts();
 
-			Console.WriteLine(myContactBook.Name);
-			myContactBook.PrintContacts();
+		}
 
-			Console.WriteLine("Please add a contact name: ");
-			string newName = Console.ReadLine();
-			Console.WriteLine("Please add a contact phone number: ");
-			string newNumber = Console.ReadLine();
-
-			myContactBook.AddContact(newName, newNumber);
-			myContactBook.PrintContacts();
-
-			myContactBook.AddContact("New Person", "555-555-5555");
-
+		static ContactBook CreateBook()
+		{
+			return new ContactBook();
 		}
 	}
 }

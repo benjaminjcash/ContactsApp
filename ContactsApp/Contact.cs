@@ -8,15 +8,33 @@ namespace ContactsApp
 {
 	public class Contact
 	{
-		public Contact(string name, string phoneNumber)
+		string name;
+		string phoneNumber;
+		string address;
+
+		public Contact(string name, string phoneNumber, string address)
 		{
-			Name = name;
-			PhoneNumber = phoneNumber;
+			this.name = name;
+			this.phoneNumber = phoneNumber;
+			this.address = address;
 		}
 
-		public string Name { get; }
+		public string Name
+		{
+			get => name;
+			set => Name = value;
+		}
 
-		public string PhoneNumber { get; }
+		public string PhoneNumber
+		{
+			get => phoneNumber;
+			set => phoneNumber = value;
+		}
 		
+		public string Address
+		{
+			get => address;
+			set => address = value;
+		}
 	}
 }

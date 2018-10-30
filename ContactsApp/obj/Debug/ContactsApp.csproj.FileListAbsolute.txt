@@ -5,3 +5,10 @@ C:\Users\BCash\ContactsApp\ContactsApp\obj\Debug\ContactsApp.csprojAssemblyRefer
 C:\Users\BCash\ContactsApp\ContactsApp\obj\Debug\ContactsApp.csproj.CoreCompileInputs.cache
 C:\Users\BCash\ContactsApp\ContactsApp\obj\Debug\ContactsApp.exe
 C:\Users\BCash\ContactsApp\ContactsApp\obj\Debug\ContactsApp.pdb
+C:\Users\BCash\ContactsApplication\ContactsApp\bin\Debug\ContactsApp.exe.config
+C:\Users\BCash\ContactsApplication\ContactsApp\bin\Debug\ContactsApp.exe
+C:\Users\BCash\ContactsApplication\ContactsApp\bin\Debug\ContactsApp.pdb
+C:\Users\BCash\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.csprojAssemblyReference.cache
+C:\Users\BCash\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.csproj.CoreCompileInputs.cache
+C:\Users\BCash\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.exe
+C:\Users\BCash\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.pdb

@@ -7,29 +7,51 @@ using System.Threading.Tasks;
 namespace ContactsApp
 {
 	public class ContactBook
-	{ 
-		public ContactBook(string name)
+	{
+		string name;
+
+		public ContactBook()
 		{
-			Name = name;
 			Contacts = new List<Contact>();
 		}
 
-		public void AddContact(string name, string phoneNumber)
+		public void AddContact()
 		{
-			Contact newContact = new Contact(name, phoneNumber);
+			Console.WriteLine("Please add a contact name: ");
+			string newName = Console.ReadLine();
+			Console.WriteLine("Please add a contact phone number: ");
+			string newNumber = Console.ReadLine();
+			Console.WriteLine("Please add a contact address: ");
+			string newAddress = Console.ReadLine();
+
+			Contact newContact = new Contact(newName, newNumber, newAddress);
 			Contacts.Add(newContact);
 		}
 
 		public void PrintContacts()
 		{
+			Console.WriteLine(name);
+
 			foreach (Contact contact in Contacts)
 			{
 				Console.WriteLine(contact.Name);
 				Console.WriteLine(contact.PhoneNumber);
+				Console.WriteLine(contact.Address);
 			}
+		} 
+
+		public void NameBook()
+		{
+			Console.WriteLine("Please enter a name for your contact book: ");
+			string newName = Console.ReadLine();
+			Name = newName;
 		}
 
-		public string Name { get; }
+		public string Name
+		{
+			get => name;
+			set => name = value;
+		}
 
 		public List<Contact> Contacts { get; }
 	}
