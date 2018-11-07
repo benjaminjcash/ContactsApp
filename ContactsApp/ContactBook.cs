@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace ContactsApp
 {
@@ -30,17 +32,29 @@ namespace ContactsApp
 
 		public void PrintContacts()
 		{
-            Console.WriteLine("CONTACTS");
-            Console.WriteLine("=====================================================================");
-            foreach (Contact contact in Contacts)
-			{
-                Console.WriteLine("\n");
-                Console.WriteLine("Name: {0}", contact.Name);
-				Console.WriteLine("Phone Number: {0}", contact.PhoneNumber);
-				Console.WriteLine("Address: {0}", contact.Address);
-                Console.WriteLine("\n");
-                Console.WriteLine("---------------------------------------------------------------------");
+            string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "SELECT * FROM contacts";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Console.WriteLine(rdr[0] + " -- " + rdr[1] + " -- " + rdr[2] + " -- " + rdr[3]);
             }
+            rdr.Close();
+
+   //         Console.WriteLine("CONTACTS");
+   //         Console.WriteLine("=====================================================================");
+   //         foreach (Contact contact in Contacts)
+			//{
+   //             Console.WriteLine("\n");
+   //             Console.WriteLine("Name: {0}", contact.Name);
+			//	Console.WriteLine("Phone Number: {0}", contact.PhoneNumber);
+			//	Console.WriteLine("Address: {0}", contact.Address);
+   //             Console.WriteLine("\n");
+   //             Console.WriteLine("---------------------------------------------------------------------");
+   //         }
 		} 
 
 		public void NameBook()
