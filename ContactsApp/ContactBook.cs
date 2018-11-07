@@ -30,14 +30,17 @@ namespace ContactsApp
 
 		public void PrintContacts()
 		{
-			Console.WriteLine(name);
-
-			foreach (Contact contact in Contacts)
+            Console.WriteLine("CONTACTS");
+            Console.WriteLine("=====================================================================");
+            foreach (Contact contact in Contacts)
 			{
-				Console.WriteLine(contact.Name);
-				Console.WriteLine(contact.PhoneNumber);
-				Console.WriteLine(contact.Address);
-			}
+                Console.WriteLine("\n");
+                Console.WriteLine("Name: {0}", contact.Name);
+				Console.WriteLine("Phone Number: {0}", contact.PhoneNumber);
+				Console.WriteLine("Address: {0}", contact.Address);
+                Console.WriteLine("\n");
+                Console.WriteLine("---------------------------------------------------------------------");
+            }
 		} 
 
 		public void NameBook()
