@@ -32,17 +32,25 @@ namespace ContactsApp
 
 		public void PrintContacts()
 		{
-            string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
-            string sql = "SELECT * FROM contacts";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            try
             {
-                Console.WriteLine(rdr[0] + " -- " + rdr[1] + " -- " + rdr[2] + " -- " + rdr[3]);
+                string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
+                MySqlConnection conn = new MySqlConnection(connStr);
+                conn.Open();
+                string sql = "SELECT * FROM contacts";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Console.WriteLine(rdr[0] + " -- " + rdr[1] + " -- " + rdr[2] + " -- " + rdr[3]);
+                }
+                rdr.Close();
             }
-            rdr.Close();
+            catch(Exception err)
+            {
+                Console.WriteLine("Error: " + err.ToString());
+            }
+            
 
    //         Console.WriteLine("CONTACTS");
    //         Console.WriteLine("=====================================================================");
