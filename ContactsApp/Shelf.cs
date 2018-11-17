@@ -37,8 +37,8 @@ namespace ContactsApp
                 string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
-                string sql = "SELECT * FROM contact_books;";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM contact_books;";
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -52,8 +52,9 @@ namespace ContactsApp
                 Console.WriteLine("Error: " + err.ToString());
             }
 
-            int selection = Convert.ToInt32(Console.ReadLine());
-            return selection; 
+            string input = Console.ReadLine();
+            int selection = Convert.ToInt32(input);
+            return selection;
         }
 
     }

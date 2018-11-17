@@ -10,11 +10,25 @@ namespace ContactsApp
 {
 	public class ContactBook
 	{
-		string name;
 
-		public ContactBook()
+		public ContactBook(int i)
 		{
-			Contacts = new List<Contact>();
+            string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT name FROM contact_books WHERE id = " + i;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                
+            }
+            rdr.Close();
+
+
+            Index = i;
+
+
 		}
 
 		public void AddContact()
@@ -72,12 +86,8 @@ namespace ContactsApp
 			Name = newName;
 		}
 
-		public string Name
-		{
-			get => name;
-			set => name = value;
-		}
-
+		public string Name { get; set; }
 		public List<Contact> Contacts { get; }
+        public int Index { get; set; }
 	}
 }

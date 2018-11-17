@@ -34,47 +34,48 @@ namespace ContactsApp
                     Shelf.AddContactBook(newBook);
                     break;
                 case "2":
-                    //Console.Clear();
-                    //Console.WriteLine("Which book would you like to open?");
-                    //Console.WriteLine("=====================================================================");
-                    //ContactBook currentBook = shelf.ChooseContactBook();
-                    //BookMenu(shelf, currentBook);
+                    Console.Clear();
+                    Console.WriteLine("Which book would you like to open?");
+                    Console.WriteLine("=====================================================================");
+                    int index = Shelf.ChooseContactBook();
+                    ContactBook currentBook = new ContactBook(index);
+
                     return;
             }
             Console.Clear();
             MainMenu();
         }
 
-        //static public void BookMenu(ContactBooks shelf, ContactBook book)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Welcome to the book menu for {0}! What would you like to do?", book.Name);
-        //    Console.WriteLine("=====================================================================");
-        //    Console.WriteLine("0. Home");
-        //    Console.WriteLine("---------------------------------------------------------------------");
-        //    Console.WriteLine("1. List Contacts");
-        //    Console.WriteLine("---------------------------------------------------------------------");
-        //    Console.WriteLine("2. Add a Contact");
-        //    Console.WriteLine("---------------------------------------------------------------------");
+        static public void BookMenu(ContactBook book)
+        {
+            Console.Clear();
+            Console.WriteLine("Welcome to the book menu for {0}! What would you like to do?", book.Name);
+            Console.WriteLine("=====================================================================");
+            Console.WriteLine("0. Home");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine("1. List Contacts");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.WriteLine("2. Add a Contact");
+            Console.WriteLine("---------------------------------------------------------------------");
 
-        //    string selection = Console.ReadLine();
-        //    switch (selection)
-        //    {
-        //        case "0":
-        //            MainMenu(shelf);
-        //            return;
-        //        case "1":
-        //            Console.Clear();
-        //            book.PrintContacts();
-        //            Console.WriteLine("Press enter to continue..");
-        //            Console.ReadLine();
-        //            break;
-        //        case "2":
-        //            Console.Clear();
-        //            book.AddContact();
-        //            break;
-        //    }
-        //    BookMenu(shelf, book);
-        //}
+            string selection = Console.ReadLine();
+            switch (selection)
+            {
+                case "0":
+                    MainMenu(shelf);
+                    return;
+                case "1":
+                    Console.Clear();
+                    book.PrintContacts();
+                    Console.WriteLine("Press enter to continue..");
+                    Console.ReadLine();
+                    break;
+                case "2":
+                    Console.Clear();
+                    book.AddContact();
+                    break;
+            }
+            BookMenu(shelf, book);
+        }
     }
 }
