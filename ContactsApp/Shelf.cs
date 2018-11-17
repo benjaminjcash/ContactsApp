@@ -11,9 +11,10 @@ namespace ContactsApp
     static class Shelf
     {
 
-        static public void AddContactBook(ContactBook book)
+        static public void AddContactBook()
         {
-            string name = book.Name;
+			Console.WriteLine("Please write a name for the contact book:");
+			string name = Console.ReadLine();
             try
             {
                 string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
@@ -32,13 +33,16 @@ namespace ContactsApp
 
         static public int ChooseContactBook()
         {
-            try
+			Console.WriteLine("Which book would you like to open?");
+			Console.WriteLine("=====================================================================");
+
+			try
             {
                 string connStr = "server=localhost;user=root;database=contacts;port=3306;password=root";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
-                MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT * FROM contact_books;";
+				MySqlCommand cmd = conn.CreateCommand();
+				cmd.CommandText = "SELECT * FROM contact_books;";
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -46,15 +50,16 @@ namespace ContactsApp
                     Console.WriteLine("---------------------------------------------------------------------");
                 }
                 rdr.Close();
+				conn.Close();
             }
             catch (Exception err)
             {
                 Console.WriteLine("Error: " + err.ToString());
             }
 
-            string input = Console.ReadLine();
+			string input = Console.ReadLine();
             int selection = Convert.ToInt32(input);
-            return selection;
+            return selection; 
         }
 
     }

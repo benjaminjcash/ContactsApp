@@ -23,3 +23,6 @@ C:\Users\Ben\Projects\ContactsApplication\ContactsApp\bin\Debug\MySql.Data.dll
 C:\Users\Ben\Projects\ContactsApplication\ContactsApp\bin\Debug\Google.Protobuf.dll
 C:\Users\Ben\Projects\ContactsApplication\ContactsApp\bin\Debug\MySql.Data.xml
 C:\Users\Ben\Projects\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.csproj.CopyComplete
+C:\Users\BCash\ContactsApplication\ContactsApp\bin\Debug\Google.Protobuf.dll
+C:\Users\BCash\ContactsApplication\ContactsApp\bin\Debug\MySql.Data.xml
+C:\Users\BCash\ContactsApplication\ContactsApp\obj\Debug\ContactsApp.csproj.CopyComplete
